@@ -1,0 +1,15 @@
+<library path="src">
+    <class name="MAPR plugin" type="rqt_mapr.my_module.MyPlugin" base_class_type="rqt_gui_py::Plugin">
+        <description>
+            Custom GUI for controlling MAPR delivery robot
+        </description>
+        <qtgui>
+            <!-- <group>
+                <label>Group</label>
+            </group> -->
+            <label>MAPR_rqt</label>
+         <!-- <icon type="theme">system-help</icon>
+         <statustip>Great user interface to provide real value.</statustip> -->
+        </qtgui>
+    </class>
+</library>
