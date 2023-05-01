@@ -83,13 +83,13 @@
       </property>
      </widget>
     </item>
-    <item>
+    <!-- <item>
      <widget class="QPushButton" name="mapping_lidar">
       <property name="text">
        <string>Launch Mapping (Lidar Based)</string>
       </property>
      </widget>
-    </item>
+    </item> -->
     <item>
      <widget class="QPushButton" name="AMCL">
       <property name="text">
@@ -101,6 +101,13 @@
      <widget class="QPushButton" name="deliv">
       <property name="text">
        <string>Launch Delivery</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="map">
+      <property name="text">
+       <string>Save Map</string>
       </property>
      </widget>
     </item>

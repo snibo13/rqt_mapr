@@ -6,7 +6,7 @@ import rospy
 from qt_gui.plugin import Plugin
 from python_qt_binding import loadUi
 from python_qt_binding.QtWidgets import QWidget, QPushButton
-from std_msgs.msg import Header
+from std_msgs.msg import Header, Int8
 from geometry_msgs.msg import PoseStamped
 from tf.transformations import quaternion_from_euler
 
@@ -25,6 +25,7 @@ class MyPlugin(Plugin):
         rp = rospkg.RosPack()
         # rospy.init_node('room_manager', anonymous=True)
         self.room_publisher  = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+        self.msn_cntrl = rospy.Publisher('/mission_command', Int8, queue_size=10)
         rate = rospy.Rate(10)
 
         # Process standalone plugin command-line arguments
@@ -60,6 +61,8 @@ class MyPlugin(Plugin):
         self._widget.RmC.pressed.connect(self.publish_rmC)
         self._widget.mapping.pressed.connect(self.launch_mapping)
         self._widget.deliv.pressed.connect(self.launch_delivery)
+        self._widget.AMCL.pressed.connect(self.launch_amcl)
+        self._widget.map.pressed.connect(self.save_map)
 
     
     def publish_rmA(self):
@@ -85,16 +88,28 @@ class MyPlugin(Plugin):
         self.room_publisher.publish(room_msg)
         
     def launch_mapping(self):
-        os.system("roslaunch mapr mapr_gmapping_enc.launch")
+        msn_cmd = Int8(1)
+        self.msn_cntrl.publish(msn_cmd)
+        # os.system("roslaunch mapr mapr_gmapping_enc.launch")
 
     def launch_delivery(self):
-        os.system("roslaunch mapr_nav mapr_nav.launch")
+        msn_cmd = Int8(3)
+        self.msn_cntrl.publish(msn_cmd)
+        # os.system("roslaunch mapr_nav mapr_nav.launch")
 
     def launch_mapping_laser(self):
-        os.system("roslaunch mapr mapr_gmapping_match.launch")
+        msn_cmd = Int8(2)
+        self.msn_cntrl.publish(msn_cmd)
+        # os.system("roslaunch mapr mapr_gmapping_match.launch")
 
     def launch_amcl(self):
-        os.system("roslaunch mapr mapr_amcl.launch")
+        msn_cmd = Int8(4)
+        self.msn_cntrl.publish(msn_cmd)
+        # os.system("roslaunch mapr mapr_amcl.launch")
+
+    def save_map(self):
+        msn_cmd = Int8(5)
+        self.msn_cntrl.publish(msn_cmd)
 
     def shutdown_plugin(self):
         # TODO unregister all publishers here
