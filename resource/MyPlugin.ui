@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Destination Selection</string>
+   <string>Widget</string>
   </property>
-
-<widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="verticalWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
+     <x>190</x>
+     <y>30</y>
      <width>160</width>
      <height>112</height>
     </rect>
@@ -27,7 +26,7 @@
     <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Delivery Location</string>
+       <string>Select Room</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -35,21 +34,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="rmA">
+     <widget class="QPushButton" name="RmA">
       <property name="text">
        <string>Room A</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="rmB">
+     <widget class="QPushButton" name="RmB">
       <property name="text">
        <string>Room B</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="rmC">
+     <widget class="QPushButton" name="RmC">
       <property name="text">
        <string>Room C</string>
       </property>
@@ -57,8 +56,43 @@
     </item>
    </layout>
   </widget>
-
- </widget> 
+  <widget class="QWidget" name="verticalWidget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>160</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Select Operation Mode</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mapping">
+      <property name="text">
+       <string>Launch Mapping</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deliv">
+      <property name="text">
+       <string>Launch Delivery</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
  <resources/>
  <connections/>
 </ui>

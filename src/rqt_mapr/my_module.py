@@ -2,6 +2,7 @@ import os
 import rospkg
 import rospy
 
+
 from qt_gui.plugin import Plugin
 from python_qt_binding import loadUi
 from python_qt_binding.QtWidgets import QWidget, QPushButton
@@ -54,9 +55,11 @@ class MyPlugin(Plugin):
 
 
         # Binding button functionality
-        self._widget.rmA.pressed.connect(self.publish_rmA)
-        self._widget.rmB.pressed.connect(self.publish_rmB)
-        self._widget.rmC.pressed.connect(self.publish_rmC)
+        self._widget.RmA.pressed.connect(self.publish_rmA)
+        self._widget.RmB.pressed.connect(self.publish_rmB)
+        self._widget.RmC.pressed.connect(self.publish_rmC)
+        self._widget.mapping.pressed.connect(self.launch_mapping)
+        self._widget.deliv.pressed.connect(self.launch_delivery)
 
     
     def publish_rmA(self):
@@ -81,7 +84,12 @@ class MyPlugin(Plugin):
 
         self.room_publisher.publish(room_msg)
         
-        
+    def launch_mapping(self):
+        os.system("roslaunch mapr mapr_gmapping.launch")
+
+    def launch_delivery(self):
+        os.system("roslaunch mapr_nav mapr_nav.launch")
+
     def shutdown_plugin(self):
         # TODO unregister all publishers here
         pass
