@@ -3,17 +3,17 @@ import rospy
 from std_msgs.msg import Int8
 
 def callback(msg):
-	match (msg.data):
-		case 1:
-			os.system("roslaunch mapr mapr_gmapping_enc.launch")
-		case 3:
-			os.system("roslaunch mapr_nav mapr_nav.launch")
+	data = msg.data
+	if (data ==  1):
+		os.system("roslaunch mapr mapr_gmapping_enc.launch")
+	elif(data == 3):
+		os.system("roslaunch mapr_nav mapr_nav.launch")
 		# case 2:
 			# os.system("roslaunch mapr mapr_gmapping_match.launch")
-		case 4:
-			os.system("roslaunch mapr mapr_amcl.launch")
-		case 5:
-			os.system("rosrun map_server map_saver -f map.pgm")
+	elif(data == 4):
+		os.system("roslaunch mapr mapr_amcl.launch")
+	elif (data == 5):
+		os.system("rosrun map_server map_saver -f map.pgm")
 
 
 def listener():
