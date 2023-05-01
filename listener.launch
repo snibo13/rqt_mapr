@@ -1,0 +1,3 @@
+<launch>
+    <node name="listener" pkg="rqt_mapr" type="listener.py" output="screen"/>
+</launch>
