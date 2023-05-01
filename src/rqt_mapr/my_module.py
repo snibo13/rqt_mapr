@@ -85,10 +85,16 @@ class MyPlugin(Plugin):
         self.room_publisher.publish(room_msg)
         
     def launch_mapping(self):
-        os.system("roslaunch mapr mapr_gmapping.launch")
+        os.system("roslaunch mapr mapr_gmapping_enc.launch")
 
     def launch_delivery(self):
         os.system("roslaunch mapr_nav mapr_nav.launch")
+
+    def launch_mapping_laser(self):
+        os.system("roslaunch mapr mapr_gmapping_match.launch")
+
+    def launch_amcl(self):
+        os.system("roslaunch mapr mapr_amcl.launch")
 
     def shutdown_plugin(self):
         # TODO unregister all publishers here

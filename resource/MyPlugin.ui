@@ -16,9 +16,9 @@
   <widget class="QWidget" name="verticalWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>360</x>
      <y>30</y>
-     <width>160</width>
+     <width>120</width>
      <height>112</height>
     </rect>
    </property>
@@ -61,8 +61,8 @@
     <rect>
      <x>20</x>
      <y>30</y>
-     <width>160</width>
-     <height>81</height>
+     <width>320</width>
+     <height>200</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -79,7 +79,21 @@
     <item>
      <widget class="QPushButton" name="mapping">
       <property name="text">
-       <string>Launch Mapping</string>
+       <string>Launch Mapping (Encoder Based) </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="mapping_lidar">
+      <property name="text">
+       <string>Launch Mapping (Lidar Based)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="AMCL">
+      <property name="text">
+       <string>AMCL</string>
       </property>
      </widget>
     </item>
